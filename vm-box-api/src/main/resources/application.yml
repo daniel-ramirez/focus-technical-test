@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: Voicemail Box API
+  data:
+    rest:
+      basePath: /api
+      detection-strategy: annotated
+  datasource:
+    url: jdbc:h2:mem:appDB
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        trace: false
+        web-allow-others: false
+  jpa:
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  security:    jwt:
+      header: Authorization
+      secret: SecretKey
+      expiration: 1_728_000_000 # 20 days in milliseconds
+      prefix: Basic
+logging:
+  file: ./logs/server.log
+  group:
+    tomcat: org.apache.catalina, org.apache.coyote, org.apache.tomcat
+  level:
+    root: WARN
+    com.applaudostudios: TRACE
+    org.hibernate: ERROR
+    org.hibernate.SQL: INFO
+    org.springframework.web: DEBUG
