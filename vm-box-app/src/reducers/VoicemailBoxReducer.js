@@ -1,19 +1,40 @@
-import { FETCH_VOICEMAILBOXES } from "../actions/actionTypes";
+import {
+  FETCHING_VOICEMAILBOXES,
+  FETCHED_VOICEMAILBOXES,
+  FETCHING_VOICEMAILMESSAGES,
+  FETCHED_VOICEMAILMESSAGES
+} from "../actions/actionTypes";
   
-  const initialState = {
-    VoicemailMessageList: []
-  };
-  
-  export default (state = initialState, action) => {
-    switch (action.type) {
-      case FETCH_VOICEMAILBOXES:
-        return {
-          ...state,
-          VoicemailMessageList: action.payload.data
-        };
-  
-      default:
-        return state;
-    }
-  };
+export const initialState = {
+  voicemailBox: {},
+  voicemailBoxList: [],
+  voicemailMessageList: []
+};
+
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case FETCHING_VOICEMAILBOXES:
+      return state;
+
+    case FETCHED_VOICEMAILBOXES:
+      return {
+        ...state,
+        voicemailBox: action.payload.content
+      };
+
+    case FETCHING_VOICEMAILMESSAGES:
+      return {
+        ...state
+      }
+
+    case FETCHED_VOICEMAILMESSAGES:
+      return {
+        ...state,
+        voicemailMessageList: action.payload.content
+      };
+
+    default:
+      return state;
+  }
+};
   

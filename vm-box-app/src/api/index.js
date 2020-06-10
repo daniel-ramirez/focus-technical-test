@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const BACKEND_URL = "https://sandbox.2600hz.com:8443/v2";
-const authToken = "Basic NDY0MmU2NDA0MGNkYjhiODljMzEwYTIxYTA3YzdmNjI6MjMyNjQxNTY1OTA3NWU3NTAwMGNlY2Q3YmNiZjM3NTY=";
+const BACKEND_URL = "http://localhost:8080/v2";
+const authToken = "Basic eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MzUzOTQ3M30._9VcOD1BHk0lr9kmwRpkMeHOkhSpuGw03NWH1-zCu5cesj7cUNVPgOgWPQhZUujKGbLnDhpjn13-otWtEH6kHQ";
 
 // Request interceptor
 axios.interceptors.request.use(
